@@ -313,6 +313,21 @@ textarea {
     font-weight: bold;
 }
 
+.social-links-section .container {
+    text-align: center; /* Center the text and inline elements */
+}
+
+.social-links a {
+    font-weight: bold; /* Make the link text bold */
+    margin: 0 15px; /* Add some horizontal space between the links */
+    text-decoration: none; /* Optional: Remove underline from links */
+    color: purple; /* Optional: Set a color for the links */
+}
+
+.social-links a:hover {
+    text-decoration: underline; /* Optional: Add underline on hover */
+}
+
 /* --- Footer --- */
 footer {
     background-color: #111; /* Even darker footer */
