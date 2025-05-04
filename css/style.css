@@ -1,0 +1,402 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --background-color: #1a1a1a; /* Dark background */
+    --text-color: #f0f0f0;       /* Light text */
+    --primary-accent: #9370DB;  /* Purple accent (MediumPurple) */
+    --secondary-accent: #a488e0; /* Lighter Purple for hover */
+    --card-background: #2c2c2c;  /* Slightly lighter dark for cards/inputs */
+    --border-color: #444;
+    --heading-font: 'Inter', sans-serif;
+    --body-font: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-weight: 300; /* Lighter default weight */
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--heading-font);
+    font-weight: 700; /* Bolder headings */
+    margin-bottom: 1rem;
+    color: var(--text-color); /* Ensure headings are light */
+}
+
+h1 {
+    font-size: 3.5rem; /* Larger main heading */
+    color: var(--primary-accent); /* Make main heading purple */
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem; /* More space below section titles */
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+/* Underline effect for H2 */
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-accent);
+}
+
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--primary-accent);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--secondary-accent);
+    text-decoration: underline;
+}
+
+section {
+    padding: 5rem 0; /* Generous padding between sections */
+}
+
+/* --- Hero Section --- */
+.hero {
+    /* background-color: var(--background-color); /* Can be slightly different if needed */
+    background: linear-gradient(to bottom, purple, black, black);
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.hero h1 {
+    margin-bottom: 0.5rem; /* Less space between h1 and tagline */
+}
+
+.hero .tagline {
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: #ccc; /* Slightly muted tagline color */
+    max-width: 600px;
+    margin: 0 auto; /* Center tagline if it wraps */
+}
+
+/* --- About Section --- */
+.about-section {
+    background-color: #222; /* Slightly different bg if desired */
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: 8px;
+    border-left: 5px solid var(--primary-accent);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(147, 112, 219, 0.2); /* Subtle purple glow */
+}
+
+.feature-card h3 {
+    color: var(--primary-accent);
+    margin-bottom: 0.8rem;
+    font-size: 1.5rem;
+}
+
+/* --- History Section --- */
+.history-section {
+     /* background-color: var(--background-color); */
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* The vertical line */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background-color: var(--primary-accent);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1.5px; /* Adjust for line width */
+    opacity: 0.5;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+    margin-bottom: 30px; /* Spacing between items */
+}
+
+/* Place items on left/right */
+.timeline-item:nth-child(odd) {
+    left: 0;
+    padding-right: 60px; /* Space from center line */
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    padding-left: 60px; /* Space from center line */
+    text-align: left;
+}
+
+/* The circles on the timeline */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    right: -8px; /* Position relative to container edge */
+    background-color: var(--background-color);
+    border: 3px solid var(--primary-accent);
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-item:nth-child(even)::after {
+    left: -8px; /* Position relative to container edge */
+}
+
+/* Adjust circle position slightly for even items */
+.timeline-item:nth-child(even) .timeline-content {
+    /* Add any specific styling if needed */
+}
+
+.timeline-date {
+    font-weight: bold;
+    color: var(--primary-accent);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.timeline-content {
+    padding: 15px 20px;
+    background-color: var(--card-background);
+    position: relative;
+    border-radius: 6px;
+}
+
+.timeline-content h4 {
+    margin-bottom: 0.5rem;
+    color: var(--text-color); /* Ensure heading is light */
+    font-size: 1.3rem;
+}
+
+/* --- Contact Section --- */
+.contact-section {
+    background-color: #222; /* Slightly different bg */
+}
+
+#contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--card-background);
+    padding: 2.5rem;
+    border-radius: 8px;
+    border-top: 5px solid var(--primary-accent);
+}
+
+#contact-form .form-description {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    color: #ccc;
+}
+
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #ccc;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background-color: #333; /* Darker input background */
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-accent);
+    box-shadow: 0 0 5px rgba(147, 112, 219, 0.5);
+}
+
+textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.btn-submit {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--primary-accent);
+    color: #fff; /* White text on purple button */
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-submit:hover {
+    background-color: var(--secondary-accent);
+}
+
+.form-status {
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #111; /* Even darker footer */
+    color: #aaa;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem; /* Ensure space before footer */
+    font-size: 0.9rem;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.8rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .hero {
+        min-height: 50vh;
+    }
+
+    .hero .tagline {
+        font-size: 1.2rem;
+    }
+
+    /* Make timeline vertical */
+     .timeline::after {
+        left: 20px; /* Move line to the left */
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px; /* Space content away from line */
+        padding-right: 25px;
+        text-align: left; /* Align all text left */
+    }
+
+    /* Align all items left */
+    .timeline-item:nth-child(odd) {
+        left: 0;
+        text-align: left;
+    }
+     .timeline-item:nth-child(even) {
+        left: 0; /* Override alternating style */
+    }
+
+    /* Move all circles to the left line */
+    .timeline-item::after {
+        left: 12px; /* Adjust to align with the line */
+    }
+    .timeline-item:nth-child(even)::after {
+         left: 12px; /* Ensure even items also align */
+    }
+
+
+    #contact-form {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+     h1 {
+        font-size: 2.2rem;
+    }
+     h2 {
+        font-size: 1.8rem;
+    }
+     .hero .tagline {
+        font-size: 1rem;
+    }
+    section {
+        padding: 3rem 0;
+    }
+    .feature-card {
+        padding: 1.5rem;
+    }
+     #contact-form {
+        padding: 1.5rem;
+    }
+    .btn-submit {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+}
